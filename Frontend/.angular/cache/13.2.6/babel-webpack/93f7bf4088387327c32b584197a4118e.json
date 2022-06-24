@@ -1,0 +1,7 @@
+{
+  "ast": null,
+  "code": "import { environment } from \"../environments/environment\";\nimport * as i0 from \"@angular/core\";\nimport * as i1 from \"@angular/common/http\";\nexport let EmployeeServices = /*#__PURE__*/(() => {\n  class EmployeeServices {\n    constructor(http) {\n      this.http = http;\n      this.API_URL = environment.API_URL;\n    }\n\n    getAllEmployees() {\n      return this.http.get(`${this.API_URL}/all`);\n    }\n\n    getEmployeeById(id) {\n      return this.http.get(`${this.API_URL}/${id}`);\n    }\n\n    addEmploye(employe) {\n      return this.http.post(`${this.API_URL}/add`, employe);\n    }\n\n    updateEmploye(employe) {\n      return this.http.put(`${this.API_URL}/update`, employe);\n    }\n\n    deleteEmploye(id) {\n      return this.http.delete(`${this.API_URL}/delete/${id}`);\n    }\n\n    searchEmployees(key) {\n      return this.http.get(`${this.API_URL}/search?key=${key}`);\n    }\n\n  }\n\n  EmployeeServices.ɵfac = function EmployeeServices_Factory(t) {\n    return new (t || EmployeeServices)(i0.ɵɵinject(i1.HttpClient));\n  };\n\n  EmployeeServices.ɵprov = /*@__PURE__*/i0.ɵɵdefineInjectable({\n    token: EmployeeServices,\n    factory: EmployeeServices.ɵfac,\n    providedIn: 'root'\n  });\n  return EmployeeServices;\n})();",
+  "map": null,
+  "metadata": {},
+  "sourceType": "module"
+}

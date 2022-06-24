@@ -1,0 +1,87 @@
+<div *ngIf="employee" class="container ">
+  <div class="row align-items-center test">
+    <form #addForm="ngForm" (ngSubmit)="onSubmit(addForm)">
+      <div class="row gutters">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="account-settings">
+                <div class="user-profile">
+                  <div class="user-avatar">
+                    <img [alt]="employee.nom"
+                         src="https://ui-avatars.com/api/?name={{this.employee.nom}}rounded=true&background=random">
+                  </div>
+                  <h5 class="user-name">{{employee.nom}}</h5>
+                  <h6 class="user-email">{{employee.email}}</h6>
+                </div>
+                <div class="about">
+                  <h5>A propos</h5>
+                  <p>{{employee.emploi}}</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="row gutters">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <h6 class="mb-2 text-primary">Details personnels</h6>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input [(ngModel)]="employee.nom" class="form-control" id="nom" name="nom" placeholder="Nom"
+                           required
+                           type="text">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="eMail">Email</label>
+                    <input [(ngModel)]="employee.email" class="form-control" id="email" name="email" placeholder="Email"
+                           required type="email">
+                  </div>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="phone">Telephone</label>
+                    <input [(ngModel)]="employee.telephone" class="form-control" id="phone" name="telephone"
+                           placeholder="Telephone"
+                           required
+                           type="text">
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="emploi">Emploi</label>
+                    <input [(ngModel)]="employee.emploi" class="form-control" id="emploi" name="jobTitle"
+                           placeholder="Emploi" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row gutters">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div class="text-right">
+                    <button (click)="goHome()" class="btn btn-secondary mr-2" name="submit" type="button">Annuler
+                    </button>
+                    <button [disabled]="addForm.invalid" class="btn btn-primary" id="submit" name="submit"
+                            type="submit">Valider
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div *ngIf="!employee">
+  <loading></loading>
+</div>

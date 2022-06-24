@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+.containe {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  width: 100%;
+}
+
+
+.menu {
+  height: auto;
+  margin: 5% auto 0 auto;
+}
+
+.list {
+  margin: 5%;
+  width: 90%;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d87f9d59-1144-4ef2-b4f4-656a2bd2dbd4" name="MyRemoteServer" url="http://localhost">
+        <fileTransfer mountedRoot="D:\Web\FullStack\Entreprise Employes\Frontend\docs\frontend" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

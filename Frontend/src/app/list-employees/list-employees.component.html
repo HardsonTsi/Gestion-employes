@@ -1,0 +1,82 @@
+<!--Au cas où la liste des employés ne serait pas encore prête-->
+<div *ngIf="!employees">
+  <loading></loading>
+</div>
+
+<!--Test-->
+<div *ngIf="employees" class="containe">
+
+
+  <div class="menu">
+    <div class="d-flex input-group w-auto">
+      <span class="input-group-text border-0 bg-transparent" id="search-eaddon">
+              <i (click)="addEmployee()" class="fa fa-plus-circle fa-2x"></i>
+     </span>
+      <input (keyup)="search()" [(ngModel)]="key" aria-describedby="search-addon" aria-label="Search"
+             class="form-control rounded" placeholder="Rechercher"
+             type="search"/>
+      <span class="input-group-text border-0 bg-transparent" id="search-addon">
+  <i aria-hidden="true" class="fa fa-search fa-2x"></i>
+     </span>
+    </div>
+  </div>
+
+
+  <div class="list">
+
+    <div *ngIf="employees" class="container">
+      <div class="row">
+        <!--    Affichage de chaque employé-->
+        <div *ngFor="let employee of employees" class="col-md-6 col-xl-3 mb-2">
+          <div class="card m-b-30">
+            <div class="card-body row">
+              <div class="col-6">
+                <a href=""><img
+                  alt=""
+                  class="img-fluid rounded-circle w-60"
+                  src="https://ui-avatars.com/api/?name={{this.employee.nom}}rounded=true&background=random"></a>
+              </div>
+              <div class="col-6 card-title align-self-center mb-0">
+                <h5>{{employee?.nom}}</h5>
+                <p class="m-0">{{employee?.emploi}}</p>
+              </div>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <i class="fa fa-envelope float-right"></i>
+                <a
+                  href="#">{{employee?.email}}</a></li>
+              <li class="list-group-item"><i class="fa fa-phone float-right"></i>Telephone: {{employee?.telephone}}
+              </li>
+            </ul>
+            <div class="card-body test">
+              <div class="float-right btn-group btn-group-sm">
+                <a (click)="updateEmployee(employee)" class="btn btn-primary tooltips" data-original-title="Edit"
+                   data-placement="top"
+                   data-toggle="tooltip"><i class="fa fa-pencil "></i> </a>
+                <a (click)="deleteEmployee(employee)" class="btn btn-secondary tooltips" data-original-title="Delete"
+                   data-placement="top"
+                   data-toggle="tooltip"><i class="fa fa-times"></i></a>
+              </div>
+              <ul class="social-links list-inline mb-0">
+                <li class="list-inline-item"><a class="tooltips" data-original-title="Facebook" data-placement="top"
+                                                data-toggle="tooltip" href=""
+                                                title=""><i class="fa fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a class="tooltips" data-original-title="Twitter" data-placement="top"
+                                                data-toggle="tooltip" href=""
+                                                title=""><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a class="tooltips" data-original-title="Skype" data-placement="top"
+                                                data-toggle="tooltip" href=""
+                                                title=""><i class="fa fa-skype"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
